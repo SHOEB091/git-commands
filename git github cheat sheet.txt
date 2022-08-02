@@ -1,0 +1,217 @@
+Git Commands Every Developer Should Know  
+
+These Git Command I Use All The Time — Git CheatSheet  
+
+1. git init 
+This command is used to initialize a project as a git repository. 
+
+2. git remote add origin 
+Example: 
+ 
+git remote add origin [url] 
+ 
+This command is used to add or connect to a remote repository. 
+
+3. git remote 
+This command is used to view connected remote repositories. 
+
+4. git status 
+This command is used to view the status of files in your local repository. Are files tracked? untracked? modified? 
+
+5. git add 
+Example: 
+ 
+
+git add index.html 
+ 
+
+git add index.html style.css style.scss 
+ 
+
+This command is used to stage modified or untracked files. 
+
+git add -a 
+This command is used to stage ALL unstaged files. 
+
+6. git reset 
+This command is used to unstage files. 
+
+7. git commit 
+This command is used to commit staged files. 
+
+git commit -m “ 
+Example: 
+ 
+
+git commit -m "added navigation bar" 
+ 
+
+This command is used to commit staged files AND provide a commit message for the commit history. 
+
+git commit --amend 
+
+The git commit --amend command is a convenient way to modify the most recent commit. 
+
+8. git push -u origin 
+Example: 
+ 
+
+git push -u origin master 
+ 
+
+This command is used to push committed files to the remote repository(aka GitHub) in the specified branch. Use this command for the very first time you push files to the remote repository. It will establish where you are pushing these files to. The next time(s) you push files, you can use git push 
+
+git push 
+This command is used to push committed files to the remote repository. You can only use this command to push files to the remote repository AFTER having pushed files using the previous command. 
+
+9. git fetch 
+This command is used to fetch the most updated version of your local repository. It checks for new files, new branches, deletions etc. 
+
+10. git pull 
+This command is used to take that information you just fetched and pull it into your local repository. This updates your local repository to the most updated version of your remote repository. 
+
+11. git rm -r — cached 
+Example: 
+ 
+
+git rm -r --cached config.js 
+ 
+
+This command is used to remove a file from the remote repository(GitHub) without deleting it in your local repository. 
+
+git branch This command is used to preview the branch you are currently on 
+
+git branch -a 
+This command is used to preview all the branches in your local and remote repository. 
+
+git branch -r 
+This command is used to preview all the branches in your local repository (aka branches you have already visited). 
+
+git branch 
+This command is used to create a new branch in your local repository. 
+
+13. git checkout — track origin/ 
+Example: 
+ 
+
+git checkout --track origin/develop 
+ 
+
+This command is used to switch branches. This is specifically for when you are visiting a branch (created in GitHub/remote repository) for the very first time. 
+
+14. git checkout 
+Example: 
+ 
+
+git checkout master 
+git checkout develop 
+ 
+
+This command is used to switch to branches you have already visited before. 
+
+15. git merge 
+This command is used to merge two branches together. To do this, enter the branch that you want to inherit the changes. And the branch name you would use along with this command is the branch that will provide the changes. 
+
+Example: master branch will inherit code from develop branch 
+ 
+
+git merge develop 
+ 
+
+16. git merge — abort 
+This command is used to abort a merge. 
+
+If there are no conflict errors, merges will always be successful. Ergo, this abort can only be used in situations where a merge failed. 
+
+How will you know this can be used? 
+
+For starters, your terminal will say merge failed. It may also tell you to fix the merge conflicts. 
+
+Here is another sign: 
+We can't paste this image from the Clipboard, but you can save it to your computer and insert it from there.
+ 
+
+Look at the very end of the first line. In parentheses, it says (master). This is because we are in the master branch. If you are in the develop branch, it would say (develop). 
+
+If your merge fails, it will say (master|merging) or something like that. Maybe it says merge or maybe it’s a forward slash or maybe you’re in another branch. Regardless, you get the idea. 
+
+This indicates your merge failed. 
+
+git merge --abort would just abort the merge entirely. 
+
+17. git merge -X theirs 
+Example: 
+ 
+
+git merge -X theirs develop 
+ 
+
+This command is used to merge two branches together. And if there are merging conflicts, this command will just assume that you’d prefer the changes made in the mentioned branch (rather than the current one). 
+
+18. git reset — hard HEAD 
+This command will erase all the changes you’ve made in your local repository and update it to the latest version that was committed to GitHub. 
+
+19. git clean -f 
+This command is used to delete untracked files in your local repository 
+
+20. git clean -d 
+This command is used to delete untracked directories in your local repository. You can also combine it into git clean -fd to do both. 
+
+Suggested by people in comments 
+
+21. git bisect 
+
+The git bisect command is used to discover the commit that has introduced a bug in the code. It helps track down the commit where the code works and the commit where it does not, hence, tracking down the commit that introduced the bug into the code. 
+
+22. git reset HEAD^ 
+
+This command moves the current branch backward by two commits, effectively removing the two snapshots we just created from the project history. it reverts an accidental commit and keep the changes. 
+
+23. git diff 
+
+Diff command is used in git to track the difference between the changes made on a file. 
+
+24. git rebase 
+
+Rebasing is especially useful if you worked on a branch, but then need to apply the changes of that branch on top of the latest main or release branch. With a git rebase you can "move" your branch on top of the latest release. It is also useful if the team (or you yourself) are following common conventions for commits, like squashing commits together or splitting out "big" commits into "smaller" ones. It's basically for "reorganizing" your commits. 
+
+git rebase -i HEAD~N 
+
+To rebase the last N commits interactively. From there you can decide what action to apply on each commit: pick, reword, squash etc. 
+
+25. git stash 
+
+Stashing is good when you are working on a branch, but then you need to switch to another branch, but you're not ready yet to make a full commit on your current branch because the current code is "messy". So you stash them, switch to the other branch, come back to your original branch, then unstash your changes. 
+
+26. git reflog 
+
+git reflog is important when you did something wrong and really messed up your commits. 
+
+27. git cherry-pick 
+
+Cherry picking in Git means to choose a commit from one branch and apply it onto another. 
+This is in contrast with other ways such as merge and rebase which normally apply many commits onto another branch. 
+ 
+
+git cherry-pick <commit-hash> 
+ 
+
+Thank you for reading! If you have some commands that you use all the time, please share them! 
+
+28. git config  --global user.name  (user name here) 
+
+29. git config  --global user.email  (user email here) 
+
+30.git branch 
+
+31. git  branch –d[branch name] = to delete the featured branch 
+
+32. git checkout [ branch name] = use to switch brach  
+
+git checkout –b[branch name] = creates a new branch and also switches to it . 
+
+33. git clone [url] [ folder creation name]  
+
+34. git checkout -f = all files return to previous modification.
+
+34. touch.gitignore = create git ignore file.
